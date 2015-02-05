@@ -1,4 +1,19 @@
 TaskMatcher::Application.routes.draw do
+  resources :tasks
+
+
+  resources :clients
+
+
+  resources :services
+
+
+  resources :machines
+
+
+  resources :people
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
