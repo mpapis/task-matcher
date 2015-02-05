@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @task_detail.name %>
+</p>
+
+<p>
+  <b>Time required:</b>
+  <%= @task_detail.time_required %>
+</p>
+
+<p>
+  <b>People amount:</b>
+  <%= @task_detail.people_amount %>
+</p>
+
+<p>
+  <b>Service:</b>
+  <%= @task_detail.service && @task_detail.service.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_detail_path(@task_detail) %> |
+<%= link_to 'Back', task_details_path %>

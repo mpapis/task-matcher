@@ -1,0 +1,30 @@
+<h1>Listing task_details</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time required</th>
+    <th>People amount</th>
+    <th>Task</th>
+    <th>Service</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @task_details.each do |task_detail| %>
+  <tr>
+    <td><%= task_detail.name %></td>
+    <td><%= task_detail.time_required %></td>
+    <td><%= task_detail.people_amount %></td>
+    <td><%= task_detail.service && task_detail.service.name %></td>
+    <td><%= link_to 'Show', task_detail %></td>
+    <td><%= link_to 'Edit', edit_task_detail_path(task_detail) %></td>
+    <td><%= link_to 'Destroy', task_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task detail', new_task_detail_path %>

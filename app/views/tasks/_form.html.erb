@@ -20,10 +20,6 @@
     <%= f.select :client_id, options_for_select(Client.all.map{|s|[s.name, s.id]}) %>
   </div>
   <div class="field">
-    <%= f.label :service %><br />
-    <%= f.select :service_id, options_for_select(Service.all.map{|s|[s.name, s.id]}) %>
-  </div>
-  <div class="field">
     <%= f.label :time_from %><br />
     <%= f.datetime_select :time_from %>
   </div>

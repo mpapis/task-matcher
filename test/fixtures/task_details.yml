@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  time_required: 2015-02-05 11:50:47
+  people_amount: 1
+  task: 
+  service: 
+
+two:
+  name: MyString
+  time_required: 2015-02-05 11:50:47
+  people_amount: 1
+  task: 
+  service: 
