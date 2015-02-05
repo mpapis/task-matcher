@@ -1,82 +1,54 @@
 class TaskDetailsController < ApplicationController
-  # GET /task_details
-  # GET /task_details.json
-  def index
-    @task_details = TaskDetail.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @task_details }
-    end
-  end
-
-  # GET /task_details/1
-  # GET /task_details/1.json
-  def show
-    @task_detail = TaskDetail.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @task_detail }
-    end
-  end
-
-  # GET /task_details/new
-  # GET /task_details/new.json
-  def new
-    @task_detail = TaskDetail.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @task_detail }
-    end
-  end
-
-  # GET /task_details/1/edit
+  # GET /tasks/:task_id/task_details/:id/edit
   def edit
-    @task_detail = TaskDetail.find(params[:id])
+    @task = Task.find(params[:task_id])
+    @task_detail = @task.task_details.find(params[:id])
   end
 
-  # POST /task_details
-  # POST /task_details.json
+  # POST /tasks/:task_id/task_details
+  # POST /tasks/:task_id/task_details.json
   def create
-    @task_detail = TaskDetail.new(params[:task_detail])
+    @task = Task.find(params[:task_id])
+    @task_detail = @task.task_details.new(params[:task_detail])
 
     respond_to do |format|
       if @task_detail.save
-        format.html { redirect_to @task_detail, notice: 'Task detail was successfully created.' }
-        format.json { render json: @task_detail, status: :created, location: @task_detail }
+        format.html { redirect_to @task, notice: 'Task detail was successfully created.' }
+        format.json { render json: @task, status: :created, location: @task }
       else
-        format.html { render action: "new" }
+        format.html { render @task }
         format.json { render json: @task_detail.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /task_details/1
-  # PUT /task_details/1.json
+  # PUT /tasks/:task_id/task_details/:id
+  # PUT /tasks/:task_id/task_details/:id.json
   def update
-    @task_detail = TaskDetail.find(params[:id])
+    @task = Task.find(params[:task_id])
+    @task_detail = @task.task_details.find(params[:id])
 
     respond_to do |format|
       if @task_detail.update_attributes(params[:task_detail])
-        format.html { redirect_to @task_detail, notice: 'Task detail was successfully updated.' }
+        format.html { redirect_to @task, notice: 'Task detail was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render @task }
         format.json { render json: @task_detail.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /task_details/1
-  # DELETE /task_details/1.json
+  # DELETE /tasks/:task_id/task_details/:id
+  # DELETE /tasks/:task_id/task_details/:id.json
   def destroy
-    @task_detail = TaskDetail.find(params[:id])
+    @task = Task.find(params[:task_id])
+    @task_detail = @task.task_details.find(params[:id])
     @task_detail.destroy
 
     respond_to do |format|
-      format.html { redirect_to task_details_url }
+      format.html { redirect_to @task }
       format.json { head :no_content }
     end
   end
