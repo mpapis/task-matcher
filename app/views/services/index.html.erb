@@ -12,7 +12,7 @@
 <% @services.each do |service| %>
   <tr>
     <td><%= service.name %></td>
-    <td><%= service.machine %></td>
+    <td><%= service.machine && service.machine.name %></td>
     <td><%= link_to 'Show', service %></td>
     <td><%= link_to 'Edit', edit_service_path(service) %></td>
     <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :machine %><br />
-    <%= f.text_field :machine %>
+    <%= f.select :machine_id, options_for_select(Machine.all.map{|s|[s.name, s.id]}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
