@@ -1,4 +1,6 @@
 TaskMatcher::Application.routes.draw do
+  match 'weather' => 'pages#weather', :via => :get
+
   root :to => "pages#main"
 
   resources :tasks do

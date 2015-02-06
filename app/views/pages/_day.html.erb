@@ -1,0 +1,15 @@
+Day:
+<%= Time.at(day["dt"]).to_date %>
+<%= day["weather"][0]["description"] %>
+<%= image_tag(weather_icon(day["weather"][0]["id"])) %>
+<br/>
+Temp: <%= KtoC(day["temp"]["min"]) %> <b>...</b> <%= KtoC(day["temp"]["max"]) %>
+<br/>
+Temp morn: <%= KtoC(day["temp"]["morn"]) %>
+<br/>
+Temp day: <%= KtoC(day["temp"]["day"]) %>
+<br/>
+Temp eve: <%= KtoC(day["temp"]["eve"]) %>
+<br/>
+Temp night: <%= KtoC(day["temp"]["night"]) %>
+<hr/>
